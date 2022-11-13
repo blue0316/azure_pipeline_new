@@ -14,7 +14,7 @@ variables:
   token: "xgc2rexsthwwovp3koycn7z47zt33axsqntbyz7qhgc7votnnqta"
 
 stages:
-  - stage: Provision VM
+  - stage: ProvisionVM
     jobs:
     - job:
       displayName: "Create Environment and VM, deploy vm to the environment"
@@ -53,10 +53,10 @@ stages:
               --resource-group $(environmentName) `
               --settings "{`\`"fileUris`\`": [`\`"https://raw.githubusercontent.com/blue0316/azure-pipeline-puppeteer/main/register-server-in-environment.sh`\`"],`\`"commandToExecute`\`": `\`"./register-server-in-environment.sh`\`"}";
     
-    - deployment: TestCustomTask
+    - deployment: VMDeploy
       displayName: Deploy Web App
       environment:
-        name: ProvisionedVM
+        name: "provision-vm-example-0001"
         resourceType: VirtualMachine
       strategy:
         runOnce:
