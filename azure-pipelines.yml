@@ -56,7 +56,7 @@ stages:
     - deployment: TestCustomTask
       displayName: Deploy Web App
       environment:
-        name: provision-vm-example-0001
+        name: ProvisionedVM
         resourceType: VirtualMachine
       strategy:
         runOnce:
